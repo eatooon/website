@@ -14,7 +14,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #e2e8f0;
+            background: #0f172a;
             overflow-x: hidden;
         }
 
@@ -23,11 +24,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1rem 2rem;
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
         }
 
         .nav-container {
@@ -41,7 +43,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -55,14 +57,14 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #cbd5e1;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
         }
 
         .nav-links a:hover {
-            color: #667eea;
+            color: #60a5fa;
         }
 
         .nav-links a::after {
@@ -72,7 +74,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #667eea;
+            background: #60a5fa;
             transition: width 0.3s ease;
         }
 
@@ -83,12 +85,12 @@
         /* 英雄区域 */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: #f1f5f9;
             position: relative;
             overflow: hidden;
         }
@@ -100,7 +102,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="600" cy="100" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="300" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="400" cy="500" r="3" fill="rgba(255,255,255,0.1)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="3" fill="rgba(96,165,250,0.1)"/><circle cx="600" cy="100" r="2" fill="rgba(167,139,250,0.1)"/><circle cx="800" cy="300" r="2" fill="rgba(96,165,250,0.1)"/><circle cx="400" cy="500" r="3" fill="rgba(167,139,250,0.1)"/></svg>');
             animation: float 20s infinite linear;
         }
 
@@ -120,31 +122,36 @@
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
             margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-shadow: 0 4px 20px rgba(96,165,250,0.3);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero .subtitle {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.8;
+            color: #94a3b8;
         }
 
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
-            background: white;
-            color: #667eea;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transform: translateY(0);
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(96,165,250,0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(96,165,250,0.4);
         }
 
         /* 关于我部分 */
@@ -152,6 +159,7 @@
             padding: 100px 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            background: #0f172a;
         }
 
         .section-title {
@@ -159,7 +167,7 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 3rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -177,25 +185,25 @@
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 4rem;
             font-weight: bold;
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 40px rgba(96,165,250,0.2);
             margin: 0 auto;
         }
 
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #666;
+            color: #94a3b8;
         }
 
         .about-text h3 {
-            color: #333;
+            color: #f1f5f9;
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
@@ -209,7 +217,7 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
             color: white;
             padding: 8px 20px;
             border-radius: 25px;
@@ -219,7 +227,7 @@
 
         /* 作品集部分 */
         .portfolio {
-            background: #f8fafc;
+            background: #1e293b;
             padding: 100px 2rem;
         }
 
@@ -236,26 +244,28 @@
         }
 
         .portfolio-item {
-            background: white;
+            background: #0f172a;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: all 0.3s ease;
             cursor: pointer;
+            border: 1px solid rgba(148, 163, 184, 0.1);
         }
 
         .portfolio-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 30px 60px rgba(96,165,250,0.2);
+            border-color: rgba(96,165,250,0.3);
         }
 
         .portfolio-image {
             height: 250px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e293b, #334155);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #60a5fa;
             font-size: 3rem;
             position: relative;
         }
@@ -267,11 +277,11 @@
         .portfolio-content h3 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: #333;
+            color: #f1f5f9;
         }
 
         .portfolio-content p {
-            color: #666;
+            color: #94a3b8;
             margin-bottom: 1rem;
             line-height: 1.6;
         }
@@ -284,8 +294,8 @@
         }
 
         .portfolio-tag {
-            background: #e2e8f0;
-            color: #64748b;
+            background: #334155;
+            color: #cbd5e1;
             padding: 4px 12px;
             border-radius: 15px;
             font-size: 0.8rem;
@@ -294,14 +304,14 @@
         .portfolio-link {
             display: inline-flex;
             align-items: center;
-            color: #667eea;
+            color: #60a5fa;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .portfolio-link:hover {
-            color: #764ba2;
+            color: #a78bfa;
         }
 
         .portfolio-link svg {
@@ -313,8 +323,8 @@
         /* 联系部分 */
         .contact {
             padding: 100px 2rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #f1f5f9;
             text-align: center;
         }
 
@@ -324,13 +334,14 @@
         }
 
         .contact h2 {
-            color: white;
+            color: #f1f5f9;
         }
 
         .contact p {
             font-size: 1.2rem;
             margin-bottom: 3rem;
-            opacity: 0.9;
+            opacity: 0.8;
+            color: #94a3b8;
         }
 
         .contact-links {
@@ -341,19 +352,20 @@
         }
 
         .contact-link {
-            background: rgba(255,255,255,0.1);
-            color: white;
+            background: rgba(96,165,250,0.1);
+            color: #cbd5e1;
             text-decoration: none;
             padding: 15px 30px;
             border-radius: 50px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(96,165,250,0.2);
             transition: all 0.3s ease;
         }
 
         .contact-link:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(96,165,250,0.2);
             transform: translateY(-2px);
+            border-color: rgba(96,165,250,0.4);
         }
 
         /* 响应式设计 */
@@ -388,6 +400,24 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #60a5fa;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a78bfa;
+        }
     </style>
 </head>
 <body>
@@ -408,7 +438,7 @@
     <section id="home" class="hero">
         <div class="hero-content fade-in">
             <h1>EATOOON</h1>
-            <p class="subtitle">数字创作者 · 产品设计师 · 内容创作者</p>
+            <p class="subtitle">数字创作者 · AI产品设计师 · 内容创作者</p>
             <a href="#portfolio" class="cta-button">探索我的作品</a>
         </div>
     </section>
@@ -420,15 +450,16 @@
             <div class="about-image fade-in">E</div>
             <div class="about-text fade-in">
                 <h3>Hello, 我是 EATOOON 👋</h3>
-                <p>我是一名充满热情的数字创作者，专注于产品设计、内容创作和用户体验。我相信好的设计不仅要美观，更要解决实际问题。</p>
-                <p>通过不断学习和实践，我致力于创造有意义的数字体验，让技术更好地服务于人们的生活。</p>
+                <p>我是一名专注于AI和数字产品的创作者，对前沿技术充满热情。我相信AI技术将重新定义创作的边界，让每个人都能成为更好的创作者。</p>
+                <p>通过不断探索和实验，我致力于用AI工具提升创作效率，同时保持人文关怀和创意思维，创造有温度的数字体验。</p>
                 
                 <div class="skills">
-                    <span class="skill-tag">产品设计</span>
-                    <span class="skill-tag">用户体验</span>
-                    <span class="skill-tag">内容创作</span>
-                    <span class="skill-tag">品牌设计</span>
+                    <span class="skill-tag">AI产品设计</span>
                     <span class="skill-tag">数字营销</span>
+                    <span class="skill-tag">内容创作</span>
+                    <span class="skill-tag">用户体验</span>
+                    <span class="skill-tag">创意工具</span>
+                    <span class="skill-tag">社区运营</span>
                 </div>
             </div>
         </div>
@@ -440,14 +471,31 @@
             <h2 class="section-title fade-in">我的作品</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">🎨</div>
+                    <div class="portfolio-image">🤖</div>
                     <div class="portfolio-content">
-                        <h3>品牌设计项目</h3>
-                        <p>为初创企业和个人品牌提供完整的视觉识别系统设计，从LOGO到品牌手册的全套解决方案。</p>
+                        <h3>AI创作工具集</h3>
+                        <p>整理和测试各种AI创作工具，为创作者提供实用的工具推荐和使用指南，提升创作效率。</p>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">品牌设计</span>
-                            <span class="portfolio-tag">视觉设计</span>
-                            <span class="portfolio-tag">LOGO</span>
+                            <span class="portfolio-tag">AI工具</span>
+                            <span class="portfolio-tag">工具测评</span>
+                            <span class="portfolio-tag">创作效率</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            查看详情 
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">💬</div>
+                    <div class="portfolio-content">
+                        <h3>AI对话产品设计</h3>
+                        <p>探索对话式AI的产品设计模式，优化人机交互体验，让AI助手更加智能和贴心。</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">对话设计</span>
+                            <span class="portfolio-tag">AI交互</span>
+                            <span class="portfolio-tag">用户体验</span>
                         </div>
                         <a href="#" class="portfolio-link">
                             查看详情 
@@ -459,12 +507,12 @@
                 <div class="portfolio-item fade-in">
                     <div class="portfolio-image">📱</div>
                     <div class="portfolio-content">
-                        <h3>移动应用UI设计</h3>
-                        <p>专注于移动端用户体验，设计简洁直观的界面，提升用户使用效率和满意度。</p>
+                        <h3>数字产品设计案例</h3>
+                        <p>从概念到落地的完整产品设计流程，注重用户需求挖掘和体验优化，打造易用的数字产品。</p>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">UI设计</span>
-                            <span class="portfolio-tag">移动端</span>
-                            <span class="portfolio-tag">用户体验</span>
+                            <span class="portfolio-tag">产品设计</span>
+                            <span class="portfolio-tag">用户研究</span>
+                            <span class="portfolio-tag">原型设计</span>
                         </div>
                         <a href="#" class="portfolio-link">
                             查看详情 
@@ -474,50 +522,16 @@
                 </div>
 
                 <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">🎬</div>
+                    <div class="portfolio-image">🎨</div>
                     <div class="portfolio-content">
-                        <h3>内容创作与营销</h3>
-                        <p>为品牌创作有趣的内容，通过视频、图文等多种形式传递品牌价值，提升用户参与度。</p>
+                        <h3>AI生成艺术作品</h3>
+                        <p>使用AI工具进行艺术创作实验，探索人工智能在视觉设计领域的创作可能性。</p>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">内容创作</span>
-                            <span class="portfolio-tag">视频制作</span>
-                            <span class="portfolio-tag">社交媒体</span>
+                            <span class="portfolio-tag">AI艺术</span>
+                            <span class="portfolio-tag">生成式设计</span>
+                            <span class="portfolio-tag">视觉实验</span>
                         </div>
                         <a href="#" class="portfolio-link">
-                            查看详情 
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">💡</div>
-                    <div class="portfolio-content">
-                        <h3>创意项目合集</h3>
-                        <p>个人创意实验和概念设计项目，探索设计的可能性，挑战传统思维模式。</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">创意设计</span>
-                            <span class="portfolio-tag">概念设计</span>
-                            <span class="portfolio-tag">实验性</span>
-                        </div>
-                        <a href="#" class="portfolio-link">
-                            查看详情 
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">🌐</div>
-                    <div class="portfolio-content">
-                        <h3>网站设计开发</h3>
-                        <p>从概念到实现的完整网站项目，注重性能优化和响应式设计，确保最佳用户体验。</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">网站设计</span>
-                            <span class="portfolio-tag">前端开发</span>
-                            <span class="portfolio-tag">响应式</span>
-                        </div>
-                        <a href="https://eatooon.github.io/website" class="portfolio-link">
                             查看详情 
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
                         </a>
@@ -527,14 +541,31 @@
                 <div class="portfolio-item fade-in">
                     <div class="portfolio-image">📚</div>
                     <div class="portfolio-content">
-                        <h3>学习笔记与分享</h3>
-                        <p>整理设计学习心得，分享实用技巧和工具推荐，与设计社区共同成长。</p>
+                        <h3>AI学习笔记分享</h3>
+                        <p>整理AI技术学习心得，分享实用的prompt技巧和工具使用方法，与AI爱好者共同成长。</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">知识分享</span>
-                            <span class="portfolio-tag">教程</span>
-                            <span class="portfolio-tag">社区</span>
+                            <span class="portfolio-tag">学习笔记</span>
+                            <span class="portfolio-tag">社区贡献</span>
                         </div>
-                        <a href="#" class="portfolio-link">
+                        <a href="https://onekid.notion.site/Hello-dfe0602764b04f8bba6b83b684777846" class="portfolio-link">
+                            查看详情 
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">🌐</div>
+                    <div class="portfolio-content">
+                        <h3>个人网站项目</h3>
+                        <p>从零开始搭建的个人展示网站，展现设计思维和技术能力，持续迭代优化用户体验。</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">网站开发</span>
+                            <span class="portfolio-tag">响应式设计</span>
+                            <span class="portfolio-tag">用户体验</span>
+                        </div>
+                        <a href="https://eatooon.github.io/website" class="portfolio-link">
                             查看详情 
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
                         </a>
@@ -547,13 +578,13 @@
     <!-- 联系我 -->
     <section id="contact" class="contact">
         <div class="contact-container fade-in">
-            <h2 class="section-title">让我们一起创造</h2>
-            <p>有想法？想合作？或者只是想聊聊设计？随时联系我！</p>
+            <h2 class="section-title">让我们一起探索AI的未来</h2>
+            <p>对AI产品感兴趣？想要合作探讨？或者想要交流创作心得？随时联系我！</p>
             <div class="contact-links">
                 <a href="mailto:hello@eatooon.com" class="contact-link">📧 邮件联系</a>
+                <a href="https://onekid.notion.site/Hello-dfe0602764b04f8bba6b83b684777846" class="contact-link">📝 Notion主页</a>
                 <a href="#" class="contact-link">💬 微信交流</a>
                 <a href="#" class="contact-link">🐦 社交媒体</a>
-                <a href="#" class="contact-link">💼 作品集</a>
             </div>
         </div>
     </section>
@@ -591,10 +622,10 @@
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(96,165,250,0.1)';
             } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
                 navbar.style.boxShadow = 'none';
             }
             
@@ -603,6 +634,12 @@
 
         // 初始化动画
         window.addEventListener('load', animateOnScroll);
+
+        // 主题切换功能（可选）
+        function toggleTheme() {
+            // 这里可以添加明暗主题切换功能
+            console.log('Theme toggle functionality can be added here');
+        }
     </script>
 </body>
 </html>
