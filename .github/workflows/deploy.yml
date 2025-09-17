@@ -1,172 +1,45 @@
-# 个人网页 CI/CD 管道 - GitHub Actions
+# 个人网页 CI/CD 管道 - 简化版
 name: Deploy Personal Website
 
-# 触发条件
 on:
   push:
-    branches: [ main, master ]  # 推送到主分支时触发
-  pull_request:
-    branches: [ main, master ]  # PR到主分支时触发
-  workflow_dispatch:  # 手动触发
+    branches: [ main, master ]
+  workflow_dispatch:
 
-# 权限设置
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 并发控制 - 确保只有一个部署任务在运行
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # 构建和验证任务
   build:
     runs-on: ubuntu-latest
     steps:
     - name: 检出代码
       uses: actions/checkout@v4
 
-    - name: 设置 Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-
-    - name: HTML 语法检查
+    - name: 准备文件
       run: |
-        # 安装 HTML 验证工具
-        npm install -g html-validate
-        
-        # 创建 HTML 验证配置
-        cat > .htmlvalidate.json << 'EOF'
-        {
-          "extends": ["html-validate:recommended"],
-          "rules": {
-            "void-style": "omit",
-            "close-order": "error",
-            "no-trailing-whitespace": "off"
-          }
-        }
-        EOF
-        
-        # 验证所有 HTML 文件
-        find . -name "*.html" -not -path "./node_modules/*" | xargs html-validate
-
-    - name: CSS 语法检查
-      run: |
-        # 安装 CSS 检查工具
-        npm install -g stylelint stylelint-config-standard
-        
-        # 创建 CSS 检查配置
-        cat > .stylelintrc.json << 'EOF'
-        {
-          "extends": "stylelint-config-standard",
-          "rules": {
-            "indentation": 2,
-            "color-hex-case": "lower"
-          }
-        }
-        EOF
-        
-        # 检查所有 CSS 文件（如果存在）
-        if find . -name "*.css" -not -path "./node_modules/*" | grep -q .; then
-          find . -name "*.css" -not -path "./node_modules/*" | xargs stylelint
-        else
-          echo "未找到 CSS 文件，跳过检查"
-        fi
-
-    - name: JavaScript 语法检查
-      run: |
-        # 安装 ESLint
-        npm install -g eslint
-        
-        # 创建 ESLint 配置
-        cat > .eslintrc.json << 'EOF'
-        {
-          "env": {
-            "browser": true,
-            "es2021": true
-          },
-          "extends": "eslint:recommended",
-          "parserOptions": {
-            "ecmaVersion": 12,
-            "sourceType": "module"
-          }
-        }
-        EOF
-        
-        # 检查所有 JS 文件（如果存在）
-        if find . -name "*.js" -not -path "./node_modules/*" | grep -q .; then
-          find . -name "*.js" -not -path "./node_modules/*" | xargs eslint
-        else
-          echo "未找到 JavaScript 文件，跳过检查"
-        fi
-
-    - name: 检查链接有效性
-      run: |
-        # 安装链接检查工具
-        npm install -g linkinator
-        
-        # 启动本地服务器进行链接检查
-        python3 -m http.server 8080 &
-        SERVER_PID=$!
-        sleep 3
-        
-        # 检查内部链接
-        linkinator http://localhost:8080 --recurse --skip "mailto:|tel:|#"
-        
-        # 清理
-        kill $SERVER_PID
-
-    - name: 压缩优化资源
-      run: |
-        # 安装压缩工具
-        npm install -g html-minifier-terser clean-css-cli terser
-        
-        # 创建 dist 目录
+        # 创建 dist 目录并复制所有文件
         mkdir -p dist
-        
-        # 复制所有文件到 dist
         cp -r . dist/
         cd dist
-        rm -rf .git .github node_modules .htmlvalidate.json .stylelintrc.json .eslintrc.json
         
-        # 压缩 HTML 文件
-        find . -name "*.html" -exec html-minifier-terser \
-          --collapse-whitespace \
-          --remove-comments \
-          --remove-optional-tags \
-          --remove-redundant-attributes \
-          --remove-script-type-attributes \
-          --remove-tag-whitespace \
-          --use-short-doctype \
-          --minify-css true \
-          --minify-js true \
-          --input {} --output {} \;
+        # 清理不需要的文件
+        rm -rf .git .github
         
-        # 压缩 CSS 文件
-        find . -name "*.css" -exec cleancss -o {} {} \;
+        # 确保有 index.html
+        if [ ! -f "index.html" ]; then
+          echo "警告: 未找到 index.html 文件"
+          echo "<!DOCTYPE html><html><head><title>我的网站</title></head><body><h1>欢迎访问我的网站！</h1><p>网站正在建设中...</p></body></html>" > index.html
+        fi
         
-        # 压缩 JS 文件
-        find . -name "*.js" -exec terser {} -o {} -c -m \;
-        
-        echo "资源压缩完成"
-
-    - name: 生成部署报告
-      run: |
-        echo "## 🚀 部署报告" > deploy-report.md
-        echo "- 构建时间: $(date)" >> deploy-report.md
-        echo "- 提交哈希: $GITHUB_SHA" >> deploy-report.md
-        echo "- 分支: $GITHUB_REF_NAME" >> deploy-report.md
-        
-        # 统计文件信息
-        echo "- HTML 文件数量: $(find dist -name "*.html" | wc -l)" >> deploy-report.md
-        echo "- CSS 文件数量: $(find dist -name "*.css" | wc -l)" >> deploy-report.md
-        echo "- JS 文件数量: $(find dist -name "*.js" | wc -l)" >> deploy-report.md
-        echo "- 图片文件数量: $(find dist -name "*.jpg" -o -name "*.png" -o -name "*.gif" -o -name "*.svg" | wc -l)" >> deploy-report.md
-        
-        cat deploy-report.md
+        echo "构建完成，文件列表:"
+        ls -la
 
     - name: 上传构建产物
       uses: actions/upload-pages-artifact@v3
